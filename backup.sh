@@ -16,7 +16,7 @@ FTPFOLD=/home/
 FileName=$(date +"%Y-%b-%d-%H:%M")_$DBNAME;
 
 # GET BACKUP USING MYSQLDUMP COMMAND
-mysqldump --user=$DBUSER --password=$DBPASS --host=$DBHOST $DBNAME > $FileName.sql
+mysqldump --single-transaction --user=$DBUSER --password=$DBPASS --host=$DBHOST $DBNAME > $FileName.sql
 
 # TRANSFER BACKUP FILE TP FTP SERVER
 ftp -n -v $FTPHOST << EOT
